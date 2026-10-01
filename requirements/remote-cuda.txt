@@ -1,0 +1,5 @@
+# Compatibility index for remote inference workers.
+# A notebook must select exactly one capability profile:
+#   pip install -r requirements/remote-media-cuda.txt
+#   pip install -r requirements/remote-llm-cuda.txt
+# Do not install both profiles merely because they share a Kaggle runtime.

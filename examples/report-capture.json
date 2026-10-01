@@ -1,0 +1,19 @@
+{
+  "client_operation_id": "independent-text-demo-1",
+  "actor": {
+    "person_id": "op_day",
+    "display_name": "Day operator",
+    "role": "operator"
+  },
+  "shift_id": "day",
+  "machine_id": "machine_a",
+  "action": "report_fault",
+  "source_type": "text",
+  "use_ai": false,
+  "manual_fields": {
+    "title": "Unusual vibration after a tool change",
+    "symptom": "Unusual vibration",
+    "reported_condition": "running",
+    "recent_change": "Tool changed"
+  }
+}

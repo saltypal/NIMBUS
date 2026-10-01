@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools>=75,<81"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shiftover"
+version = "0.2.0"
+description = "Evidence-based automotive shift handover and ticket management"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+license = { text = "Proprietary" }
+authors = [{ name = "ShiftOver team" }]
+dependencies = [
+  "fastapi>=0.115,<1",
+  "httpx>=0.28,<1",
+  "numpy>=1.26,<3",
+  "pydantic>=2.10,<3",
+  "pydantic-settings>=2.7,<3",
+  "Pillow>=10.4,<12",
+  "pymongo>=4.10,<5",
+  "python-multipart>=0.0.18,<1",
+  "PyYAML>=6,<7",
+  "uvicorn[standard]>=0.34,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3,<9",
+  "pytest-asyncio>=0.25,<1",
+  "nbclient>=0.10,<1",
+  "nbformat>=5.10,<6",
+  "ruff>=0.9,<1",
+]
+# These extras are deliberately not installed by bootstrap-local.ps1. They are
+# for a separately validated Linux/CUDA worker environment such as Kaggle.
+media = [
+  "faster-whisper>=1.1,<2",
+  "transformers>=4.57,<5",
+  "accelerate>=1.2,<2",
+]
+embeddings = [
+  "sentence-transformers>=3.3,<4",
+]
+
+[project.scripts]
+shiftover = "nimbus.cli:main"
+nimbus = "nimbus.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+asyncio_mode = "auto"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

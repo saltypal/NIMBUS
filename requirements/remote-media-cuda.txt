@@ -1,0 +1,17 @@
+# Linux/CUDA media worker only: speech, handwriting, and optional embeddings.
+# Do not install in the Windows FastAPI application environment.
+
+# Handwriting worker: Apache-2.0 Qwen/Qwen3-VL-4B-Instruct.
+transformers>=4.57,<5
+accelerate>=1.2,<2
+qwen-vl-utils>=0.0.14,<1
+
+# Speech worker: MIT Systran/faster-whisper-large-v3 or small fallback.
+faster-whisper>=1.1,<2
+
+# Optional retrieval experiment worker. The local app starts with lexical search.
+sentence-transformers>=3.3,<4
+
+# Kaggle's image provides the matching CUDA-enabled torch build. The notebook
+# validates `torch.cuda.is_available()` before model loading; it must not replace
+# it with a generic PyPI wheel.

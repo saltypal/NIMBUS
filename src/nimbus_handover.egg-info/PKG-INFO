@@ -1,0 +1,52 @@
+Metadata-Version: 2.4
+Name: nimbus-handover
+Version: 0.1.0
+Summary: Traceable factory shift-handover ticketing prototype
+Author: NIMBUS team
+License: Proprietary
+Requires-Python: <3.14,>=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: fastapi<1,>=0.115
+Requires-Dist: httpx<1,>=0.28
+Requires-Dist: numpy<3,>=1.26
+Requires-Dist: pydantic<3,>=2.10
+Requires-Dist: pydantic-settings<3,>=2.7
+Requires-Dist: Pillow<12,>=10.4
+Requires-Dist: pymongo<5,>=4.10
+Requires-Dist: python-multipart<1,>=0.0.18
+Requires-Dist: PyYAML<7,>=6
+Requires-Dist: uvicorn[standard]<1,>=0.34
+Provides-Extra: dev
+Requires-Dist: pytest<9,>=8.3; extra == "dev"
+Requires-Dist: pytest-asyncio<1,>=0.25; extra == "dev"
+Requires-Dist: nbclient<1,>=0.10; extra == "dev"
+Requires-Dist: nbformat<6,>=5.10; extra == "dev"
+Requires-Dist: ruff<1,>=0.9; extra == "dev"
+Provides-Extra: media
+Requires-Dist: faster-whisper<2,>=1.1; extra == "media"
+Requires-Dist: transformers<5,>=4.48; extra == "media"
+Requires-Dist: accelerate<2,>=1.2; extra == "media"
+Provides-Extra: embeddings
+Requires-Dist: sentence-transformers<4,>=3.3; extra == "embeddings"
+
+# NIMBUS
+
+NIMBUS is a proposed shift handover and maintenance ticket system for a small factory. It turns text, audio, and handwriting into traceable reports, keeps unresolved faults visible across shifts, and distinguishes an inspection from a verified resolution.
+
+The prototype uses a local FastAPI application, a React web interface, MongoDB, a Git-managed knowledge base, and remote inference workers. The proposed GPU deployment uses two Kaggle notebooks connected to a restricted local worker bridge through outbound HTTPS.
+
+## Project status
+
+Architecture and implementation planning only. The application, inference workers, notebooks, and networking have not been implemented or validated in this repository.
+
+## Documentation
+
+- [Full system architecture and implementation specification](docs/SYSTEM_ARCHITECTURE.md)
+- [Original problem and constraints](HSP.docx)
+
+The architecture document covers requirements, roles, workflows, diagrams, schemas, API contracts, retrieval, model boundaries, Kaggle deployment, tunneling, failure recovery, reproducibility, and acceptance tests. It distinguishes agreed decisions, proposed engineering defaults, and deployment assumptions that still require testing.
+
+## Core rule
+
+An inspection, acknowledgment, or tick mark does not close a ticket. An operator submits verification evidence; the backend closes the ticket automatically only when its explicit verification policy passes. The LLM helps interpret and complete the evidence.
+

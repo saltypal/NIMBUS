@@ -1,0 +1,4 @@
+# Linux/CUDA LLM worker only. Do not install in the Windows FastAPI app venv.
+# Qwen/Qwen3-8B is Apache-2.0. Its official card requires vLLM >=0.8.5.
+# The notebook still has to validate the actual Kaggle image/GPU combination.
+vllm>=0.8.5,<1

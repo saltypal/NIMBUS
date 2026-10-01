@@ -1,0 +1,15 @@
+{
+  "ticket": null,
+  "action": "report_fault",
+  "actor": {
+    "person_id": "op_day",
+    "display_name": "Day operator",
+    "role": "operator"
+  },
+  "fields": {
+    "title": "Unusual vibration after a tool change",
+    "symptom": "Unusual vibration",
+    "reported_condition": "running",
+    "recent_change": "Tool changed"
+  }
+}

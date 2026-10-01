@@ -1,0 +1,2 @@
+Machine A developed unusual vibration after a tool change. It is still running.
+This is a synthetic demonstration note, not a physical inspection.

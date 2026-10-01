@@ -1,0 +1,31 @@
+# Local Python environment and tool caches
+.venv/
+.pytest_cache/
+.ruff_cache/
+__pycache__/
+*.py[cod]
+
+# Secrets, local database data, and generated runtime state
+.env
+.env.*
+!.env.example
+data/
+artifacts/
+uploads/
+logs/
+.tools/
+.data/
+output/
+.playwright-cli/
+
+# JavaScript dependency and build output
+web/node_modules/
+web/dist/
+web/*.tsbuildinfo
+
+# Jupyter checkpoints and editor files
+.ipynb_checkpoints/
+.vscode/
+
+# Microsoft Office temporary lock files
+~$*.docx
