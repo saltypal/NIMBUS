@@ -1,0 +1,3 @@
+[console_scripts]
+nimbus = nimbus.cli:main
+shiftover = nimbus.cli:main
